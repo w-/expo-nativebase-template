@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "i-need-a-name",
+    "description": "An empty new project",
+    "slug": "i-need-a-name",
+    "privacy": "unlisted",
+    "sdkVersion": "20.0.0",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "primaryColor": "#ffffff",
+    "icon": "./app_assets/icons/app-icon.png",
+    "loading": {
+      "icon": "./app_assets/icons/loading-icon.png",
+      "hideExponentText": false
+    },
+    "packagerOpts": {
+      "assetExts": ["ttf", "mp4"]
+    },
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
