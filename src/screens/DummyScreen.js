@@ -20,8 +20,21 @@ const DummyScreenDefaultProps = {
 }
 
 class DummyScreen extends React.Component{
+	static navigationOptions = {
+        drawerLabel: 'Dummy',
+        drawerIcon: ({ tintColor }) => (
+            <Icon name="dumbbell"
+                    theme="MaterialCommunityIcons"
+                    color={tintColor} />
+        ),
+    }
+
 	constructor(props){
 		super(props);
+
+		console.log('nav props', this.props.navigation.state)
+		const {params} = this.props.navigation.state
+		this.showDrawer = params && params.drawer ? true : false;
 
 		this.showMenu = this.showMenu.bind(this)
 		this.goBack = this.goBack.bind(this)
@@ -36,14 +49,27 @@ class DummyScreen extends React.Component{
 	}
 
 	render(){
+
+		let leftContent = (
+			<Button transparent onPress={this.goBack}>
+				<Icon android="md-arrow-back"
+						ios="ios-arrow-back" />
+			</Button>
+		);
+
+		if (this.showDrawer){
+			leftContent = (
+				<Button transparent onPress={this.showMenu}>
+                    <Icon name="menu"></Icon>
+                </Button>
+			)
+		}
+
 		return (
 			<Container>
 				<Header>
 					<Left>
-						<Button transparent onPress={this.goBack}>
-							<Icon android="md-arrow-back"
-									ios="ios-arrow-back" />
-						</Button>
+						{leftContent}
 					</Left>
 					<Body>
 						<Title>Dummy Screen</Title>

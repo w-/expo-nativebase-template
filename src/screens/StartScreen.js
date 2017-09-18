@@ -29,6 +29,10 @@ function StartScreen(props){
 		props.navigation.navigate('Dummy');
 	}
 
+	function handleDrawer(){
+		props.navigation.navigate('Drawer', {drawer:true});
+	}
+
 	return (
 		<View style={styles.container}>
 			<Image source={LogoImg}
@@ -59,7 +63,7 @@ function StartScreen(props){
 							marginBottom: 20,
 
 						}}
-						onPress={handleDummy}>
+						onPress={handleDrawer}>
 					<Icon name="login"
 							theme="MaterialCommunityIcons"
 							style={{ color:'white'}} />
